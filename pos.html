@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <style>
+        /*Sidebar buka tutup dan tutup start*/
+        .sidebar {
+            width: 120px;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+        /*Sidebar buka tutup dan tutup end*/
+        .sidebar.closed {
+            margin-left: -120px;
+        }
+        .content {
+            flex: 1;
+        }
+        .product-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .product-card {
+            border-radius: 5px;
+        }
+        .discount-badge {
+            background-color: #ffb703;
+            color: #fff;
+            font-weight: 600;
+        }
+        .option-btn {
+            width: 40px;
+            height: 35px;
+            border: 1px solid #ddd;
+            background: #fff;
+            font-size: 14px;
+        }
+        .bag-icon {
+            font-size: 50px;
+        }
+        .avatar-circle {
+            width: 42px;
+            height: 42px;
+            background-color: #ffb703;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .avatar-circle-2 {
+            width: 42px;
+            height: 42px;
+            background-color: #6a6862;
+            color: #fff;
+            border-radius: 50%;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-card-details {
+            border-radius: 20px;
+        }
+        .card-footer {
+            font-size: small;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <button class="btn btn-outline-light" id="toggleSidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <a class="navbar-brand ms-2" href="#">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex">
+        <aside id="sidebar" class="sidebar bg-light border-end p-3">
+            <ul class="nav -pills flex-column gap-1">
+                <li class="nav-item">
+                    <a href="" class="nav-link active">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-dark">User</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-dark">Transaksi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-dark">Laporan</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link text-dark">Keluar</a>
+                </li>
+            </ul>
+        </aside>
+        <main class="content p-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-9 p-4">
+                        <!-- <div class="d-flex justify-content-beetwen align-items-center mb-3">
+                        <h4 class="fw-bold me-4">All Menus</h4>
+                        <input type="text" class="form-control w-50" placeholder="Cari Item yang dipilih">
+                    </div> -->
+                        <!-- <div class="mb-3">
+                        <button class="btn btn-outline-secondary btn-sm-active">All</button>
+                        <button class="btn btn-outline-secondary btn-sm-active">Coffe</button>
+                        <button class="btn btn-outline-secondary btn-sm-active">Food</button>
+                    </div> -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="all-menus-tab" data-bs-toggle="tab"
+                                    data-bs-target="#all-menus-tab-pane" type="button" role="tab"
+                                    aria-controls="all-menus-tab-pane" aria-selected="true">
+                                    All Menus
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                    aria-controls="profile-tab-pane" aria-selected="false">
+                                    Coffe & Baverage
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                    data-bs-target="#contact-tab-pane" type="button" role="tab"
+                                    aria-controls="contact-tab-pane" aria-selected="false">
+                                    Food & Snack
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                    data-bs-target="#contact-tab-pane" type="button" role="tab"
+                                    aria-controls="contact-tab-pane" aria-selected="false">
+                                    Imaji at Home
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="all-menus-tab-pane" role="tabpanel"
+                                aria-labelledby="all-menus-tab" tabindex="0">
+                                <nav class="navbar bg-body-tertiary">
+                                    <div class="container-fluid">
+                                        <div class="input-group">
+                                            <h3 class="fw-bold me-2 mt-1">67</h3>
+                                            <small class="text-muted me-3 mt-2">Product</small>
+                                            <span class="input-group-text" id="basic-addon1"><i
+                                                    class="bi bi-search"></i></span>
+                                            <input class="form-control me-2" type="search" placeholder="Search"
+                                                aria-label="Search" />
+                                            <button class="btn btn-outline-dark me-1" type="submit"><i
+                                                    class="bi bi-grid"></i></button>
+                                            <button class="btn btn-outline-dark me-1" type="submit"><i
+                                                    class="bi bi-card-list"></i></button>
+                                            <button class="btn btn-outline-dark" type="submit"><i
+                                                    class="bi bi-funnel"></i></button>
+                                            </form>
+                                        </div>
+                                </nav>
+                                <!-- Product Name -->
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card product-card">
+                                            <div class="d-flex align-items-center mb-2 p-3">
+                                                <img src="Asset/img/cappucino.webp" alt="p" class="rounded-circle me-3"
+                                                    width="48" height="48" />
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Ristretto Bianco</h6>
+                                                    <small class="text-muted">Coffe & Baverage</small>
+                                                </div>
+                                            </div>
+                                            <!-- Price -->
+                                            <div class="d-flex align-items-center gap-2 mb-2 ps-3">
+                                                <h4 class="mb-0 fw-bold">$ 4.00</h4>
+                                                <del class="text-warning">$8.00</del>
+                                                <span class="badge discount-badge">
+                                                    <i class="bi bi-tag">50%</i>
+                                                </span>
+                                            </div>
+                                            <!-- Stock -->
+                                            <p class="text-muted mb-3 ps-3">
+                                                Ready Stock
+                                                <span class="fw-bold text-dark">58 pcs</span>
+                                            </p>
+                                            <!-- Temperature -->
+                                            <div class="d-flex gap-1">
+                                                <div class="mb-2">
+                                                    <small class="text-muted d-block mb-1 ps-3">Temperature</small>
+                                                    <div class="d-flex gap-2 ps-3">
+                                                        <button class="option-btn">Ice</button>
+                                                        <button class="option-btn active">Hot</button>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block mb-1 ps-3">Size</small>
+                                                    <div class="d-flex gap-2 ps-3 mb-2">
+                                                        <button class="option-btn">S</button>
+                                                        <button class="option-btn active">M</button>
+                                                        <button class="option-btn">L</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card product-card">
+                                            <div class="d-flex align-items-center mb-2 p-3">
+                                                <img src="Asset/img/cappucino.webp" alt="p" class="rounded-circle me-3"
+                                                    width="48" height="48" />
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Ristretto Bianco</h6>
+                                                    <small class="text-muted">Coffe & Baverage</small>
+                                                </div>
+                                            </div>
+                                            <!-- Price -->
+                                            <div class="d-flex align-items-center gap-2 mb-2 ps-3">
+                                                <h4 class="mb-0 fw-bold">$ 4.00</h4>
+                                                <del class="text-warning">$8.00</del>
+                                                <span class="badge discount-badge">
+                                                    <i class="bi bi-tag">50%</i>
+                                                </span>
+                                            </div>
+                                            <!-- Stock -->
+                                            <p class="text-muted mb-3 ps-3">
+                                                Ready Stock
+                                                <span class="fw-bold text-dark">58 pcs</span>
+                                            </p>
+                                            <!-- Temperature -->
+                                            <div class="d-flex gap-1">
+                                                <div class="mb-2">
+                                                    <small class="text-muted d-block mb-1 ps-3">Temperature</small>
+                                                    <div class="d-flex gap-2 ps-3">
+                                                        <button class="option-btn">Ice</button>
+                                                        <button class="option-btn active">Hot</button>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block mb-1 ps-3">Size</small>
+                                                    <div class="d-flex gap-2 ps-3 mb-2">
+                                                        <button class="option-btn">S</button>
+                                                        <button class="option-btn active">M</button>
+                                                        <button class="option-btn">L</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card product-card">
+                                            <div class="d-flex align-items-center mb-2 p-3">
+                                                <img src="Asset/img/cappucino.webp" alt="p" class="rounded-circle me-3"
+                                                    width="48" height="48" />
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Ristretto Bianco</h6>
+                                                    <small class="text-muted">Coffe & Baverage</small>
+                                                </div>
+                                            </div>
+                                            <!-- Price -->
+                                            <div class="d-flex align-items-center gap-2 mb-2 ps-3">
+                                                <h4 class="mb-0 fw-bold">$ 4.00</h4>
+                                                <del class="text-warning">$8.00</del>
+                                                <span class="badge discount-badge">
+                                                    <i class="bi bi-tag">50%</i>
+                                                </span>
+                                            </div>
+                                            <!-- Stock -->
+                                            <p class="text-muted mb-3 ps-3">
+                                                Ready Stock
+                                                <span class="fw-bold text-dark">58 pcs</span>
+                                            </p>
+                                            <!-- Temperature -->
+                                            <div class="d-flex gap-1">
+                                                <div class="mb-2">
+                                                    <small class="text-muted d-block mb-1 ps-3">Temperature</small>
+                                                    <div class="d-flex gap-2 ps-3">
+                                                        <button class="option-btn">Ice</button>
+                                                        <button class="option-btn active">Hot</button>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted d-block mb-1 ps-3">Size</small>
+                                                    <div class="d-flex gap-2 ps-3 mb-2">
+                                                        <button class="option-btn">S</button>
+                                                        <button class="option-btn active">M</button>
+                                                        <button class="option-btn">L</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
+                                aria-labelledby="profile-tab" tabindex="0">
+                                ...
+                            </div>
+                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
+                                aria-labelledby="contact-tab" tabindex="0">
+                                ...
+                            </div>
+                            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel"
+                                aria-labelledby="disabled-tab" tabindex="0">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 p-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="order-details-tab" data-bs-toggle="tab"
+                                    data-bs-target="#order-details-tab-pane" type="button" role="tab"
+                                    aria-controls="order-details-tab-pane" aria-selected="true">Order Details</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="order-saved-tab" data-bs-toggle="tab"
+                                    data-bs-target="#order-saved-tab-pane" type="button" role="tab"
+                                    aria-controls="order-saved-tab-pane" aria-selected="false">Order Saved</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="order-details-tab-pane" role="tabpanel"
+                                aria-labelledby="order-details-tab" tabindex="0">
+                                <div class="card order-card p-3 d-flex flex-column"
+                                    style="max-width: 340px; height: 100vh; max-height: 800px; background-color: #fff;">
+                                    <div>
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <small class="text-muted">Order Id <strong>#001</strong></small>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-4">
+                                            <div class="avatar-circle me-2">T2</div>
+                                            <div class="avatar-circle-2 me-3"><i class="bi bi-inbox-fill"></i></div>
+                                            <div>
+                                                <small class="text-muted d-block">Customer Name</small>
+                                                <div class="d-flex align-items-center gap-2 fw-semibold">Ravi Kamil<i
+                                                        class="bi bi-stars"></i></div>
+                                            </div>
+                                            <button class="btn btn-sm ms-auto edit-btn"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="product-list flex-grow-1 overflow-auto mb-3 pe-2"
+                                        style="scrollbar-width: thin;">
+                                        <div class="card product-card-details">
+                                            <div class="d-flex align-items-center mb-2 p-3">
+                                                <img src="Asset/img/cappucino.webp" alt="p" class="rounded-circle me-3"
+                                                    width="48" height="48" />
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Ristretto Bianco</h6>
+                                                    <small class="text-muted">$4.00</small>
+                                                </div>
+                                                <button class="btn btn-sm ms-auto edit-btn"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-2 ps-3">
+                                                <button class="btn btn-outline-dark btn-sm me-1"><i
+                                                        class="bi bi-dash-lg"></i></button>
+                                                <span class="me-1">2</span>
+                                                <button class="btn btn-outline-dark btn-sm"><i
+                                                        class="bi bi-plus-lg"></i></button>
+                                                <span class="fw-bold ms-auto pe-3">$ 8.00</span>
+                                            </div>
+                                            <div class="d-flex flex-warp gap-2 p-3">
+                                                <div class="mb-2">
+                                                    <span class="border text-muted me-1">Temperature : <small
+                                                            class="fw-bold">Ice</small></span>
+                                                    <span class="border text-muted me-1">Size : <small
+                                                            class="fw-bold">Large</small></span>
+                                                    <span class="border text-muted me-1">Sugar : <small
+                                                            class="fw-bold">Normal</small></span>
+                                                    <span class="border text-muted">Topping : <small
+                                                            class="fw-bold">Boba</small></span>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-body-secondary">
+                                                <p class="text-muted mb-1"><i class="bi bi-receipt"></i> 1 item no
+                                                    sugar, 2 item normal sugar</p>
+                                            </div>
+                                        </div>
+                                        <div class="card product-card-details mt-2">
+                                            <div class="d-flex align-items-center mb-2 p-3">
+                                                <img src="Asset/img/sodabaverage.jpg" alt="p"
+                                                    class="rounded-circle me-3" width="48" height="48" />
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">Soda Baverage</h6>
+                                                    <small class="text-muted">$4.00</small>
+                                                </div>
+                                                <button class="btn btn-sm ms-auto edit-btn"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-2 ps-3">
+                                                <button class="btn btn-outline-dark btn-sm me-1"><i
+                                                        class="bi bi-dash-lg"></i></button>
+                                                <span class="me-1">3</span>
+                                                <button class="btn btn-outline-dark btn-sm"><i
+                                                        class="bi bi-plus-lg"></i></button>
+                                                <span class="fw-bold ms-auto pe-3">$ 15.00</span>
+                                            </div>
+                                        </div>
+                                        <div class="card product-card-details mt-2">
+                                            <div class="d-flex align-items-center mb-2 p-3">
+                                                <img src="Asset/img/french.jpg" alt="p" class="rounded-circle me-3"
+                                                    width="48" height="48" />
+                                                <div>
+                                                    <h6 class="mb-0 fw-bold">French Toast Sugar</h6>
+                                                    <small class="text-muted">$4.00</small>
+                                                    <del class="text-warning text-sm">$8.00</del>
+                                                    <span class="badge text-sm discount-badge"><i
+                                                            class="bi bi-tag">50%</i></span>
+                                                </div>
+                                                <button class="btn btn-sm ms-auto edit-btn"><i
+                                                        class="bi bi-pencil-square"></i></button>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-2 ps-3">
+                                                <button class="btn btn-outline-dark btn-sm me-1"><i
+                                                        class="bi bi-dash-lg"></i></button>
+                                                <span class="me-1">3</span>
+                                                <button class="btn btn-outline-dark btn-sm"><i
+                                                        class="bi bi-plus-lg"></i></button>
+                                                <span class="fw-bold ms-auto pe-3">$ 15.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-summary-section mt-auto pt-3 border-top"
+                                        style="background-color: #fff9f3; margin: 0 -1rem -1rem -1rem; padding: 1rem; border-radius: 0 0 15px 15px;">
+                                        <div class="d-flex justify-content-between align-items-center mb-3"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseSummary"
+                                            aria-expanded="false" aria-controls="collapseSummary"
+                                            style="cursor: pointer;">
+                                            <h6 class="mb-0 fw-bold">Order Summary</h6>
+                                            <i class="bi bi-chevron-down"></i>
+                                        </div>
+                                        <div class="collapse" id="collapseSummary">
+                                            <div class="d-flex justify-content-between small text-muted mb-1">
+                                                <span>Subtotal</span>
+                                                <span>$42.00</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between small text-muted mb-2">
+                                                <span>Tax (10%)</span>
+                                                <span>$4.00</span>
+                                            </div>
+                                            <hr class="my-2" style="border-style: dashed;">
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="mb-0 fw-bold" style="color: #8d6e63;">Total Bill</h5>
+                                            <h5 class="mb-0 fw-bold" style="color: #8d6e63;">$ 46</h5>
+                                        </div>
+                                        <div class="row g-2">
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-brown w-100 py-2"
+                                                    style="border-color: #a67c52; color: #a67c52;">Save Order</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn w-100 py-2 text-white"
+                                                    style="background-color: #a67c52;">Payment <i
+                                                        class="bi bi-arrow-right ms-1"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="order-saved-tab-pane" role="tabpanel"
+                                aria-labelledby="order-saved-tab" tabindex="0">...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script>
+        const toggleBtn = document.querySelector("#toggleSidebar");
+        const sidebar = document.querySelector("#sidebar");
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("closed");
+        });
+    </script>
+</body>
+</html>

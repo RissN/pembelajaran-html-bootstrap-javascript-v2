@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Sekolah</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #0056b3;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        section {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .box {
+            border: 1px solid black;
+            border-radius: 10px;
+            width: 150px;
+            padding: 5px 30px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            background-color: rgb(43, 168, 226);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: rgb(42, 104, 165);
+        }
+
+        .kontak-sekolah {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 113px;
+            margin-top: 10px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            background-color: #1d73f4;
+            color: white;
+            padding: 10px;
+        }
+
+        .informasi-siswa {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Website Profile Sekolah</h2>
+    </header>
+    <nav>
+        <a href="">Profile</a>
+        <a href="">Siswa</a>
+        <a href="">Kontak</a>
+    </nav>
+    <main>
+        <section>
+            <h2>Konten Utama</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum
+                neque incidunt itaque, alias, ab amet molestias quasi facilis
+                blanditiis, vel veniam aut modi velit in delectus. Repellat sequi hic
+                fugiat.
+            </p>
+        </section>
+        <div class="informasi-siswa">
+            <h2>Informasi Siswa</h2>
+            <p>Data siswa akan ditampilkan pada bagian ini</p>
+        </div>
+        <div class="container">
+            <div class="box">
+                <h3>Siti</h3>
+                <p>Kelas XI</p>
+                <button>Cari</button>
+            </div>
+            <div class="box">
+                <h3>Budi</h3>
+                <p>Kelas XII</p>
+                <button>Cari</button>
+            </div>
+            <div class="box">
+                <h3>Andi</h3>
+                <p>Kelas X</p>
+                <button>Cari</button>
+            </div>
+        </div>
+        <div class="kontak-sekolah">
+            <h2>Kontak Sekolah</h2>
+            <p class="text-muted">Email: infosekolah@sch.id</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Website Profile Sekolah</p>
+    </footer>
+</body>
+
+</html>

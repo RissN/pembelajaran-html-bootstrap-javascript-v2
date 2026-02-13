@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis</title>
+</head>
+<body>
+    <!-- Kota: Jakarta, Bandung, Surabaya
+    Tarif per kg tiap kota berbeda tiap kota
+    Soal : Hitung total ongkir Jakarta, 10kg 100.000
+    output : Total Ongkir : Rp. 100.000 -->
+    <script>
+        let kota = 'Surabaya';
+        let berat = 3;
+        let tarif = 0;
+        if (kota === 'Jakarta') {
+            tarif = 1000;
+        }else if(kota === 'Bandung'){
+            tarif = 2000;
+        } else if (kota =='Surabaya'){
+            tarif = 3000;
+        } else {
+            console.log('kota tidak ditemukan');
+        }
+        let ongkir = tarif * berat
+        console.log(`Total Ongkir : Rp. ${berat * tarif}`)
+    </script>
+</body>
+</html>

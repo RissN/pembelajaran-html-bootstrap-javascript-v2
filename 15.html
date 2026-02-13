@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object JavaScript</title>
+</head>
+<body>
+    <h3>Object</h3>
+    <script>
+        // const siswa = []; Array
+        const siswa = {
+            nama: "reza",
+            umur: "27",
+            jurusan: "web"
+        };
+        siswa.alamat = "bekasi";
+        delete siswa.alamat;
+        siswa.gender = "laki-laki"
+        console.log(siswa);
+        console.log(siswa.nama);
+        console.log(siswa.umur);
+        console.log(siswa.jurusan);
+
+        for(let key in siswa){
+            console.log(`${key} : ${siswa[key]}`);
+        }
+        Object.keys(siswa).forEach(function(key){
+            console.log(`${key} : ${siswa[key]}`);
+        })
+
+        const peserta = [
+            {
+                nama: "jokowi",
+                umur: "79",
+                jurusan: "politik",
+                nilai: "80"
+            },
+            {
+                nama: "prabowo",
+                umur: "79",
+                jurusan: "politik",
+                nilai: "60"
+            },
+            {
+                nama: "bahlil",
+                umur: "79",
+                jurusan: "politik",
+                nilai: "100",
+            }
+        ];
+
+        peserta.push({nama: "wowok", umur: 20, jurusan: "web", nilai: 90})
+        const remove = peserta.splice(2, 1);
+        const index = peserta.findIndex(item => item.nama === 'jokowi');
+        peserta.push({nama: "wowok", umur: 20, jurusan: "web", nilai: 90})
+        if(index !== -1){
+            peserta.splice(index, 1);
+        }
+        console.log(peserta[0].nama);
+        const pesertaBaru = peserta.filter(item => item.umur !== "prabowo")
+        console.log(pesertaBaru)
+        console.log(peserta);
+    </script>
+</body>
+</html>

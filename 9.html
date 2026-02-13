@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let nama = "Riss";
+        let nilaiTeori = 90;
+        let nilaiPraktek = 85;
+        let kehadiran = 100;
+        let pelanggaranBerat = false;
+        let rataRata = (nilaiTeori + nilaiPraktek) / 2;
+        let status = "";
+        if (
+            nilaiTeori >= 75 &&
+            nilaiPraktek >= 80 &&
+            kehadiran >= 90 &&
+            pelanggaranBerat === false
+        ) {
+            if (rataRata > 90) {
+                status = "Lulus dengan Predikat Sangat Baik";
+            } else if (rataRata > 85) {
+                status = "Lulus dengan Predikat Baik";
+            } else {
+                status = "Lulus";
+            }
+        } else {
+            if (pelanggaranBerat === true) {
+                status = "Tidak Lulus (Pelanggaran Disiplin)";
+            } else if (kehadiran < 90) {
+                status = "Tidak Lulus (Kehadiran Kurang)";
+            } else if (nilaiTeori < 75) {
+                status = "Tidak Lulus (Teori Kurang)";
+            } else if (nilaiPraktek < 80) {
+                status = "Tidak Lulus (Praktek Kurang)";
+            }
+        }
+        console.log("Nama: " + nama);
+        console.log("Rata-rata: " + rataRata);
+        console.log("Status: " + status);
+    </script>
+</body>
+
+</html>
